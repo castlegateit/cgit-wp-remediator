@@ -5,35 +5,16 @@ namespace Cgit\Remediator;
 class Admin
 {
     /**
-     * Singleton class instance
+     * Constructor
      *
-     * @var self
-     */
-    private static $instance;
-
-    /**
-     * Private constructor
+     * Registers the admin menu page, which contains the interface that controls
+     * when and how the remediator is run.
      *
      * @return void
      */
-    private function __construct()
+    public function __construct()
     {
-        // Register the menu page
         add_action('admin_menu', [$this, 'register']);
-    }
-
-    /**
-     * Return the singleton class instance
-     *
-     * @return self
-     */
-    public static function getInstance()
-    {
-        if (!isset(self::$instance)) {
-            self::$instance = new self;
-        }
-
-        return self::$instance;
     }
 
     /**
@@ -94,7 +75,8 @@ class Admin
     {
         // Run the importer and get a list of images, if any, that have been
         // imported into the database.
-        $importer = Importer::getInstance();
+        $importer = new Importer();
+        $result = $importer->import();
         $images = $importer->getImported();
 
         if ($images) {

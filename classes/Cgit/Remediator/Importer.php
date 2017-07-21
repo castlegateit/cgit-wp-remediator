@@ -8,13 +8,6 @@ use RecursiveIteratorIterator;
 class Importer
 {
     /**
-     * Singleton class instance
-     *
-     * @var self
-     */
-    private static $instance;
-
-    /**
      * List of image media types
      *
      * @var array
@@ -52,14 +45,14 @@ class Importer
     private $imported = [];
 
     /**
-     * Private constructor
+     * Constructor
      *
      * Assigns properties for the database object and the uploads directory and
      * performs the import.
      *
      * @return void
      */
-    private function __construct()
+    public function __construct()
     {
         global $wpdb;
 
@@ -67,23 +60,6 @@ class Importer
         // uploads directory to properties.
         self::$database = $wpdb;
         self::$uploads = wp_upload_dir()['basedir'];
-
-        // Run the import
-        $this->import();
-    }
-
-    /**
-     * Return the singleton class instance
-     *
-     * @return self
-     */
-    public static function getInstance()
-    {
-        if (!isset(self::$instance)) {
-            self::$instance = new self;
-        }
-
-        return self::$instance;
     }
 
     /**
@@ -101,7 +77,6 @@ class Importer
         $this->scan();
 
         foreach ($this->images as $image) {
-
             // Import the image as an attachment
             $id = wp_insert_attachment($image, $image['_path']);
             $meta = wp_generate_attachment_metadata($id, $image['_path']);
