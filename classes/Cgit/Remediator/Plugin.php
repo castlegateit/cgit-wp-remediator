@@ -19,7 +19,7 @@ class Plugin
      *
      * @return void
      */
-    private function __construct()
+    public function __construct()
     {
         $this->admin = new Admin();
     }
