@@ -70,7 +70,7 @@ class Importer
      *
      * @return void
      */
-    private function import()
+    public function import()
     {
         require_once ABSPATH . 'wp-admin/includes/image.php';
 
