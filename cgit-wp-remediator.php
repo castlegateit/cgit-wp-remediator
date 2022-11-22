@@ -8,7 +8,7 @@ Description: Add images in the uploads directory to the media gallery.
 Version: 1.1.2
 Author: Castlegate IT
 Author URI: http://www.castlegateit.co.uk/
-License: AGPLv3
+License: MIT
 
 */
 
