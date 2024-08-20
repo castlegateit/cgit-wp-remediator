@@ -1,6 +1,6 @@
 <?php
 
-namespace Cgit\Remediator;
+namespace Castlegate\Remediator;
 
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -16,6 +16,7 @@ class Importer
         'image/gif',
         'image/jpeg',
         'image/png',
+        'image/webp',
     ];
 
     /**

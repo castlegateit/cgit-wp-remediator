@@ -1,0 +1,8 @@
+{
+    "name": "castlegate/cgit-wp-remediator",
+    "autoload": {
+        "psr-4": {
+            "Castlegate\\Remediator\\": "classes"
+        }
+    }
+}

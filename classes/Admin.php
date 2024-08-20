@@ -1,20 +1,19 @@
 <?php
 
-namespace Cgit\Remediator;
+namespace Castlegate\Remediator;
 
 class Admin
 {
     /**
-     * Constructor
-     *
-     * Registers the admin menu page, which contains the interface that controls
-     * when and how the remediator is run.
+     * Initialization
      *
      * @return void
      */
-    public function __construct()
+    public static function init(): void
     {
-        add_action('admin_menu', [$this, 'register']);
+        $admin = new static();
+
+        add_action('admin_menu', [$admin, 'register']);
     }
 
     /**
